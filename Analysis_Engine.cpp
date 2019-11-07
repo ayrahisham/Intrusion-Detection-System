@@ -37,13 +37,13 @@ Analysis_Engine::Analysis_Engine(string event_log_filename, int days_to_monitor,
     bool continue_program = true;
     while (continue_program)
     {
-    	Alert_Engine();
-    	char response;
-    	cout << "\nWould you like to continue using the system? (Y/N): ";
-    	cin >> response;
-    	
-    	if (response == 'N' || response == 'n')
-    		exit(-1);
+        Alert_Engine();
+        char response;
+        cout << "\nWould you like to continue using the system? (Y/N): ";
+        cin >> response;
+        
+        if (response == 'N' || response == 'n')
+            exit(-1);
     }
 }
 
@@ -166,6 +166,7 @@ void Analysis_Engine::write_Statistics(string filename)
         << delimiter
         << endl;
     }
-
+    
 }
+
 

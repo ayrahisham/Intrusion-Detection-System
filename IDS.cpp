@@ -1,14 +1,16 @@
+
 #include "IDS.h"
 #include "Initial_Input.h"
 
 
 int main (int argc, char *argv[])
 {
-     string event_type_filename = argv[1];
-     string stat_filename = argv[2];
-     string days_str = argv[3];
-     int days = stoi (days_str);
-
+    string event_type_filename = "Events.txt";
+    string stat_filename = "Stats.txt";
+    string days_str = "10";
+    int days = stoi (days_str);
+    
+    delete_output_files();
     Initial_Input(event_type_filename, stat_filename, days);
     
 }
@@ -26,7 +28,7 @@ vector <Event_Type> read_event_type_file(string filename)
     cout << "Reading file: " << filename << endl;
     int size = 0;
     afile >> size;
-
+    
     afile.clear ();
     afile.ignore(10, '\n');
     
@@ -117,7 +119,7 @@ vector <Event_Statistic> read_stat_file(string filename)
         
         afile.clear ();
     }
-
+    
     afile.close ();
     return event_stat_vec;
 }
@@ -304,13 +306,13 @@ vector <Event_Daily_Total> read_event_daily_total_file(string filename, int days
     while(getline(afile, line_str))
     {
         char *line = &line_str[0];
-            
+        
         token = strtok(line, ":");
         char event_val_type_read = *token;
-            
+        
         token = strtok(NULL, ":");
         string event_name_read(token);
-            
+        
         token = strtok(NULL, ":");
         int day_number_read = atof(token);
         
@@ -341,15 +343,15 @@ vector <Event_Daily_Total> read_event_daily_total_file(string filename, int days
 
 void delete_output_files()
 {
-	remove("Event_Log_Training_Data.txt");
-	remove("Stat_Training.txt");
-	remove("Daily_Total_Training.txt");
-	
-	remove("Event_Log_Live_Data.txt");
-	remove("Daily_Total_Live.txt");
-	remove("Stats_Live_Computed.txt");
-	
-	remove("Abnormaly Report.txt");
+    remove("Event_Log_Training_Data.txt");
+    remove("Stat_Training.txt");
+    remove("Daily_Total_Training.txt");
+    
+    remove("Event_Log_Live_Data.txt");
+    remove("Daily_Total_Live.txt");
+    remove("Stats_Live_Computed.txt");
+    
+    remove("Abnormaly Report.txt");
 }
 
 

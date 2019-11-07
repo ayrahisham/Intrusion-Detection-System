@@ -30,7 +30,7 @@ Initial_Input::Initial_Input(string event_type_filename, string stat_filename, i
     
     if (check_file_format_event == true && check_file_format_stat == true)
     {
-    	  cout << "\n >>>>>>>>>>>>>> Format Validation: Success" << endl;
+        cout << "\n >>>>>>>>>>>>>> Format Validation: Success" << endl;
         Activity_Simulation(stat_filename, days_to_monitor);
     }
     else

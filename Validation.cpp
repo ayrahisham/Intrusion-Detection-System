@@ -2,12 +2,12 @@
 
 Validation::Validation()
 {
-
+    
 }
 
 Validation::~Validation()
 {
-
+    
 }
 
 bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Event_Statistic> event_stat_vec)
@@ -17,7 +17,7 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
     bool exit_event_type = false;
     
     cout << "Validation of Event Types in Event and Statistic files" << endl;
- 
+    
     int i = 0;
     while (i < event_stat_vec.size() && exit_event_type == false)
     {
@@ -32,7 +32,7 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
             char event_val_type= event_type_vec[j].event_val_type;
             
             if (name.compare(name_toCompare) == 0 &&
-                    event_val_type_toCompare == event_val_type)
+                event_val_type_toCompare == event_val_type)
             {
                 match = true;
                 exit_event_stat = true;
@@ -45,9 +45,9 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
         {
             cout << "Error: Event Not Found" << endl;
             cout << "Not found in either Stats or Events file: "
-                << event_val_type_toCompare << ":"
-                <<  name_toCompare
-                << endl;
+            << event_val_type_toCompare << ":"
+            <<  name_toCompare
+            << endl;
             exit_event_type = true;
         }
         else
@@ -58,7 +58,7 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
 
 bool Validation::check_file_created(string filename)
 {
-	fstream afile;
+    fstream afile;
     afile.open(filename, ios::in);
     if (!afile)
     {
@@ -70,28 +70,29 @@ bool Validation::check_file_created(string filename)
 
 bool Validation::check_Total_EventTypes(vector <Event_Type> event_type_vec, vector <Event_Statistic> event_stat_vec)
 {
-	if (event_type_vec.size() != event_stat_vec.size())
-	{
-		cout << "Error: Total number of event types mismatch in Events and Stats files" << endl;
-		return false;
-	}
-	return true;
+    if (event_type_vec.size() != event_stat_vec.size())
+    {
+        cout << "Error: Total number of event types mismatch in Events and Stats files" << endl;
+        return false;
+    }
+    return true;
 }
 
 bool Validation::check_Event_Max_Value(vector <Event_Type> event_type_vec, string event_name, float value)
 {
-	int i = 0;
-	while(i < event_type_vec.size())
-	{
-		if (event_type_vec[i].event_name.compare(event_name) == 0)
-		{
-			if (event_type_vec[i].max == 0 || event_type_vec[i].max >= value)
-				return false;
-		}
-		i++;
-	}
-	return true;
+    int i = 0;
+    while(i < event_type_vec.size())
+    {
+        if (event_type_vec[i].event_name.compare(event_name) == 0)
+        {
+            if (event_type_vec[i].max == 0 || event_type_vec[i].max >= value)
+                return false;
+        }
+        i++;
+    }
+    return true;
 }
+
 
 
 

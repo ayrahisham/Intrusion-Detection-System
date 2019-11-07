@@ -1,0 +1,50 @@
+D:Logins:1:12:
+D:Logins:2:14:
+D:Logins:3:17:
+D:Logins:4:9:
+D:Logins:5:28:
+D:Logins:6:22:
+D:Logins:7:9:
+D:Logins:8:22:
+D:Logins:9:3:
+D:Logins:10:12:
+C:Time online:1:202.606:
+C:Time online:2:300.649:
+C:Time online:3:464.805:
+C:Time online:4:175.135:
+C:Time online:5:48.2377:
+C:Time online:6:420.982:
+C:Time online:7:368.304:
+C:Time online:8:401.096:
+C:Time online:9:485.455:
+C:Time online:10:398.617:
+D:Emails sent:1:29:
+D:Emails sent:2:46:
+D:Emails sent:3:5:
+D:Emails sent:4:8:
+D:Emails sent:5:14:
+D:Emails sent:6:24:
+D:Emails sent:7:8:
+D:Emails sent:8:19:
+D:Emails sent:9:27:
+D:Emails sent:10:46:
+D:Emails opened:1:7:
+D:Emails opened:2:11:
+D:Emails opened:3:46:
+D:Emails opened:4:6:
+D:Emails opened:5:6:
+D:Emails opened:6:5:
+D:Emails opened:7:23:
+D:Emails opened:8:31:
+D:Emails opened:9:29:
+D:Emails opened:10:37:
+D:Emails deleted:1:42:
+D:Emails deleted:2:1:
+D:Emails deleted:3:47:
+D:Emails deleted:4:55:
+D:Emails deleted:5:30:
+D:Emails deleted:6:6:
+D:Emails deleted:7:2:
+D:Emails deleted:8:16:
+D:Emails deleted:9:35:
+D:Emails deleted:10:25:

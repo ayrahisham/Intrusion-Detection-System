@@ -3,7 +3,7 @@
 #define INITIAL_INPUT
 
 #include "IDS.h"
-#include "Activity_Simulation.h"
+#include "Activity_Simulation.h" 
 #include "Validation.h"
 
 class Initial_Input
@@ -30,3 +30,4 @@ private:
 };
 
 #endif
+

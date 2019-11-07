@@ -35,49 +35,46 @@ Activity_Simulation::Activity_Simulation(string stat_filename, int days_to_monit
     Validation v;
     if (choice == 1)
     {
-  		  // if live data option selected
-  		  // check if "training data" has already been generated
-        this -> event_log_filename = "Event_Log_Live_Data.txt"; 
+        // if live data option selected
+        // check if "training data" has already been generated
+        this -> event_log_filename = "Event_Log_Live_Data.txt";
         bool check = v.check_file_created("Event_Log_Training_Data.txt");
         if (check == true)
         {
-        		// check if event types and # events in both event and stats file match
-        		bool check_2 = check_EventTypes();
-        		if (check_2 == true)
-        		{
-        			cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
-        			generateAndLogEvent(event_log_filename);
-    	  			Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
-        		}
-        		
+            // check if event types and # events in both event and stats file match
+            bool check_2 = check_EventTypes();
+            if (check_2 == true)
+            {
+                cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
+                generateAndLogEvent(event_log_filename);
+                Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
+            }
+            
         }
         else
         {
-        		cout << "Please select option to generate Training Data before generating Event Logs and Statistics for Live Data" << endl;
+            cout << "Please select option to generate Training Data before generating Event Logs and Statistics for Live Data" << endl;
         }
     }
     else if(choice == 2)
     {
-    	  // if training data option is selected
+        // if training data option is selected
         this -> event_log_filename = "Event_Log_Training_Data.txt";
         
         // check if event types and # events in both event and stats file match
         bool check = check_EventTypes();
         if (check == true)
         {
-                cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
-		        generateAndLogEvent(event_log_filename);
-		 	    Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
-		  }
-    }   
+            cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
+            generateAndLogEvent(event_log_filename);
+            Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
+        }
+    }
 }
 
 void Activity_Simulation :: generateAndLogEvent(string event_log_filename)
 {
     int total_event_type = (int)event_stat_vec.size();
-    
-    // delete system generated intermediate files from previous execution, if there are any
-    delete_output_files();
     
     cout << "Writing File: " << event_log_filename << endl;
     
@@ -97,9 +94,8 @@ void Activity_Simulation :: generateAndLogEvent(string event_log_filename)
             int day_number = i + 1;
             
             // write the logs in text file
-                // format for discrete = event:day_number:
-                // format for continuous = event:day_number:duration:
-            //write_LogFile(fileName,event_val_type, daily_total_eventLog, event_name, day_number);
+            // format for discrete = event:day_number:
+            // format for continuous = event:day_number:duration:
             write_LogFile(event_log_filename, event_val_type, daily_total_eventLog, event_name, day_number);
         }
     }
@@ -111,34 +107,34 @@ float Activity_Simulation :: calculate_DailyTotals(float mean, float std_dev, ch
     float range_max = mean + std_dev;
     
     bool value_exceed_max = true;
-    float final_rand;
-    int random_int;
+    float final_rand = 0.0;
+    int random_int = 0.0;
     Validation v;
     
     if (type == 'C' || type == 'c')
     {
-    	  while (value_exceed_max == true)
-    	  {
-    	  		float random = ((float) rand()) / (float) RAND_MAX;
-       	 	    float range = range_max - range_min;
-        		float r = random * range;
-        		final_rand = range_min + r;
+        while (value_exceed_max == true)
+        {
+            float random = ((float) rand()) / (float) RAND_MAX;
+            float range = range_max - range_min;
+            float r = random * range;
+            final_rand = range_min + r;
+            
+            value_exceed_max = v.check_Event_Max_Value(event_type_vec, event_name, final_rand);
+        }
         
-        		value_exceed_max = v.check_Event_Max_Value(event_type_vec, event_name, final_rand);
-    	  }
-        
-        return final_rand;
+        return final_rand; 
     }
     else
     {
         while (value_exceed_max == true)
-    	  {
-    	  		int range_min_int = static_cast<int>(range_min);
-        		int range_max_int = static_cast<int>(range_max);
-       		    random_int = rand() % ((range_max_int - range_min_int) + 1) + range_min_int;
-
-        		value_exceed_max = v.check_Event_Max_Value(event_type_vec, event_name, random_int);
-    	  }
+        {
+            int range_min_int = static_cast<int>(range_min);
+            int range_max_int = static_cast<int>(range_max);
+            random_int = rand() % ((range_max_int - range_min_int) + 1) + range_min_int;
+            
+            value_exceed_max = v.check_Event_Max_Value(event_type_vec, event_name, random_int);
+        }
         
         return random_int;
     }
@@ -195,25 +191,26 @@ void Activity_Simulation::write_LogFile(string fileName, char event_val_type, fl
 
 bool Activity_Simulation::check_EventTypes()
 {
-	 Validation v;
-	 bool check_Total_Event = v.check_Total_EventTypes(event_type_vec, event_stat_vec);
+    Validation v;
+    bool check_Total_Event = v.check_Total_EventTypes(event_type_vec, event_stat_vec);
     if (check_Total_Event == true)
     {
-    		bool check_EventTypes = v.validate_events(event_type_vec, event_stat_vec);
-    		if (check_EventTypes == true)
-    			return true;
-    		else
-    		{
-    			cout << "\n Please check files and try again." << endl;
-    			return false;
-    			
-    		}	
+        bool check_EventTypes = v.validate_events(event_type_vec, event_stat_vec);
+        if (check_EventTypes == true)
+            return true;
+        else
+        {
+            cout << "\n Please check files and try again." << endl;
+            return false;
+            
+        }
     }
     else
     {
-    		cout << "\n Please check files and try again." << endl;
-    		return false;
+        cout << "\n Please check files and try again." << endl;
+        return false;
     }
 }
+
 
 
