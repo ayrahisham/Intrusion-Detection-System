@@ -65,9 +65,9 @@ Activity_Simulation::Activity_Simulation(string stat_filename, int days_to_monit
         bool check = check_EventTypes();
         if (check == true)
         {
-        	  cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
-		     generateAndLogEvent(event_log_filename);
-		 	  Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
+                cout << "\n >>>>>>>>>>>>>> Content Validation: Success" << endl;
+		        generateAndLogEvent(event_log_filename);
+		 	    Analysis_Engine analysis(event_log_filename, days_to_monitor, choice);
 		  }
     }   
 }
@@ -120,7 +120,7 @@ float Activity_Simulation :: calculate_DailyTotals(float mean, float std_dev, ch
     	  while (value_exceed_max == true)
     	  {
     	  		float random = ((float) rand()) / (float) RAND_MAX;
-       	 	float range = range_max - range_min;
+       	 	    float range = range_max - range_min;
         		float r = random * range;
         		final_rand = range_min + r;
         
@@ -135,7 +135,7 @@ float Activity_Simulation :: calculate_DailyTotals(float mean, float std_dev, ch
     	  {
     	  		int range_min_int = static_cast<int>(range_min);
         		int range_max_int = static_cast<int>(range_max);
-       		random_int = rand() % ((range_max_int - range_min_int) + 1) + range_min_int;
+       		    random_int = rand() % ((range_max_int - range_min_int) + 1) + range_min_int;
 
         		value_exceed_max = v.check_Event_Max_Value(event_type_vec, event_name, random_int);
     	  }
