@@ -8,7 +8,7 @@
 #ifndef IDS_main
 #define IDS_main
 
-// C++ libraries
+// C++ libaries
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -17,7 +17,6 @@
 #include <cstdlib>
 #include <math.h>
 #include <string.h>
-#include <ctime>
 using namespace std;
 
 struct Event_Type
