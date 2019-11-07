@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include <math.h>
 #include <string.h>
+#include <ctime>
 using namespace std;
 
 struct Event_Type
