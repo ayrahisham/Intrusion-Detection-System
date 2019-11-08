@@ -82,7 +82,10 @@ void Activity_Simulation :: generateAndLogEvent(string event_log_filename)
     {
         // extract information each struct in stat vector
         string event_name = event_stat_vec[i].event_name;
-        char event_val_type = event_stat_vec[i].event_val_type;
+        
+        int event_vec_index = search_event_in_vec(event_name, event_type_vec);
+        char event_val_type = event_type_vec[event_vec_index].event_val_type;
+        
         float mean = event_stat_vec[i].mean;
         float std_dev = event_stat_vec[i].std_dev;
         

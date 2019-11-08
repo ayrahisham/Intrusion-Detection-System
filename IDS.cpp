@@ -103,9 +103,6 @@ vector <Event_Statistic> read_stat_file(string filename)
         char* line = &line_str[0];
         
         token = strtok (line, ":");
-        event_stat.event_val_type = *token;
-        
-        token = strtok (NULL, ":");
         string s(token);
         event_stat.event_name = s;
         

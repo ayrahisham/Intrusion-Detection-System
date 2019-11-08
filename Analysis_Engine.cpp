@@ -118,7 +118,6 @@ void Analysis_Engine::write_Statistics(string filename)
     {
         Event_Daily_Total temp = event_daily_total_vec[i];
         
-        char event_val_type = temp.event_val_type;
         string name = temp.event_name;
         
         float mean = 0;
@@ -156,8 +155,6 @@ void Analysis_Engine::write_Statistics(string filename)
         float std_dev = sqrt(variance);
         
         outfile
-        << event_val_type
-        << delimiter
         << name
         << delimiter
         << mean

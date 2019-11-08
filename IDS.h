@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include <math.h>
 #include <string.h>
+#include <ctime>
 using namespace std;
 
 struct Event_Type
@@ -50,7 +51,7 @@ struct Event_Log
     float daily_total_val;
 };
 
-struct Event_Abnormaly_Report
+struct Event_Anomaly_Report
 {
     string event_name;
     int day_number;
@@ -59,7 +60,7 @@ struct Event_Abnormaly_Report
     bool status_normal;
 };
 
-/*
+
 template <class T>
 int search_event_in_vec(string event_name, vector <T> events_vec)
 {
@@ -71,7 +72,7 @@ int search_event_in_vec(string event_name, vector <T> events_vec)
             index = i;
     }
     return index;
-}*/
+}
 
 // functions that can be shared across classes
 vector <Event_Type> read_event_type_file(string);

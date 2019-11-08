@@ -13,7 +13,7 @@ Alert_Engine::Alert_Engine()
     int response;
     cout << "Select the following options: "
     << "\n 1) Generate Live Data with new Statistics file"
-    << "\n 2) Generate abnormaly report with latest Live Data" << endl;
+    << "\n 2) Generate Anomaly Report with latest Live Data" << endl;
     cout << "Enter Option: ";
     cin >> response;
     cout << endl;
@@ -56,14 +56,14 @@ Alert_Engine::Alert_Engine()
                 
                 event_total_live_vec = read_event_daily_total_file("Daily_Total_Live.txt", days_to_monitor);
                 this -> abnormal_report_vec = generate_abnormaly_report();
-                write_AbnormalyReport("Abnormaly Report.txt");
+                write_AnomalyReport("Anomaly Report.txt");
                 
                 cout << "\n >>>>>>>>>>>>>> Report has been created successfully." << endl;
                 cout << " >>>>>>>>>>>>>> Please review file: \"Abnormaly Report.txt\" in the working directory." << endl;
             }
             else
             {
-                cout << "Please select option to generate Live Data before generating Abnormaly Report" << endl;
+                cout << "Please select option to generate Live Data before generating Anomaly Report" << endl;
             }
         }
         else
@@ -73,11 +73,11 @@ Alert_Engine::Alert_Engine()
     }
 }
 
-vector <Event_Abnormaly_Report> Alert_Engine::generate_abnormaly_report()
+vector <Event_Anomaly_Report> Alert_Engine::generate_abnormaly_report()
 {
     // format
     // [C/D]:event_name:day#:threshold:counter:[okay/alert_detected]
-    vector <Event_Abnormaly_Report> abnormaly_report_vec;
+    vector <Event_Anomaly_Report> abnormaly_report_vec;
     
     int total_event_type = (int)event_type_vec.size();
     
@@ -92,7 +92,7 @@ vector <Event_Abnormaly_Report> Alert_Engine::generate_abnormaly_report()
         
         for (int j = 0; j < days_to_monitor; j++)
         {
-            Event_Abnormaly_Report report;
+            Event_Anomaly_Report report;
             
             string name = stat_training_struct.event_name;
             report.event_name = name;
@@ -131,7 +131,7 @@ vector <Event_Abnormaly_Report> Alert_Engine::generate_abnormaly_report()
 }
 
 
-void Alert_Engine::write_AbnormalyReport(string filename)
+void Alert_Engine::write_AnomalyReport(string filename)
 {
     ofstream outfile;
     

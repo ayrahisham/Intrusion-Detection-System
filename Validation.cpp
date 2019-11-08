@@ -22,17 +22,14 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
     while (i < event_stat_vec.size() && exit_event_type == false)
     {
         string name_toCompare = event_stat_vec[i].event_name;
-        char event_val_type_toCompare = event_stat_vec[i].event_val_type;
         
         int j = 0;
         bool exit_event_stat = false;
         while (j < event_type_vec.size() && exit_event_stat == false)
         {
             string name = event_type_vec[j].event_name;
-            char event_val_type= event_type_vec[j].event_val_type;
-            
-            if (name.compare(name_toCompare) == 0 &&
-                event_val_type_toCompare == event_val_type)
+
+            if (name.compare(name_toCompare) == 0)
             {
                 match = true;
                 exit_event_stat = true;
@@ -45,7 +42,6 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
         {
             cout << "Error: Event Not Found" << endl;
             cout << "Not found in either Stats or Events file: "
-            << event_val_type_toCompare << ":"
             <<  name_toCompare
             << endl;
             exit_event_type = true;

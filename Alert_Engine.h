@@ -15,8 +15,8 @@ public:
     ~Alert_Engine();
     
     void generate_anomaly_report();
-    vector <Event_Abnormaly_Report> generate_abnormaly_report();
-    void write_AbnormalyReport(string);
+    vector <Event_Anomaly_Report> generate_abnormaly_report();
+    void write_AnomalyReport(string);
     
 private:
     string stat_live_filename;
@@ -24,7 +24,7 @@ private:
     vector <Event_Type> event_type_vec;
     vector <Event_Statistic> event_stat_training_vec;
     int days_to_monitor;
-    vector <Event_Abnormaly_Report> abnormal_report_vec;
+    vector <Event_Anomaly_Report> abnormal_report_vec;
     
     
 };
