@@ -1,0 +1,40 @@
+Day 1
+Counter: 5
+Check Status: OKAY
+
+Day 2
+Counter: 1
+Check Status: OKAY
+
+Day 3
+Counter: 4
+Check Status: OKAY
+
+Day 4
+Counter: 6
+Check Status: OKAY
+
+Day 5
+Counter: 7
+Check Status: OKAY
+
+Day 6
+Counter: 2
+Check Status: OKAY
+
+Day 7
+Counter: 8
+Check Status: OKAY
+
+Day 8
+Counter: 3
+Check Status: OKAY
+
+Day 9
+Counter: 5
+Check Status: OKAY
+
+Day 10
+Counter: 11
+Check Status: ALERT
+

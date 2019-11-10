@@ -1,0 +1,25 @@
+C:Time online:1:500.069:
+C:Time online:2:82.4879:
+C:Time online:3:182.027:
+C:Time online:4:344.102:
+C:Time online:5:992.228:
+D:Emails sent:1:19:
+D:Emails sent:2:63:
+D:Emails sent:3:61:
+D:Emails sent:4:47:
+D:Emails sent:5:11:
+D:Emails opened:1:18:
+D:Emails opened:2:20:
+D:Emails opened:3:14:
+D:Emails opened:4:28:
+D:Emails opened:5:39:
+D:Emails deleted:1:38:
+D:Emails deleted:2:12:
+D:Emails deleted:3:24:
+D:Emails deleted:4:30:
+D:Emails deleted:5:26:
+D:Logins:1:4:
+D:Logins:2:16:
+D:Logins:3:13:
+D:Logins:4:0:
+D:Logins:5:13:

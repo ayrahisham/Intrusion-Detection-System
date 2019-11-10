@@ -28,7 +28,7 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
         while (j < event_type_vec.size() && exit_event_stat == false)
         {
             string name = event_type_vec[j].event_name;
-
+            
             if (name.compare(name_toCompare) == 0)
             {
                 match = true;
@@ -52,18 +52,6 @@ bool Validation::validate_events(vector <Event_Type> event_type_vec, vector <Eve
     return match;
 }
 
-bool Validation::check_file_created(string filename)
-{
-    fstream afile;
-    afile.open(filename, ios::in);
-    if (!afile)
-    {
-        cout << "Error: Missing pre-requisite file(s)" << endl;
-        return false;
-    }
-    return true;
-}
-
 bool Validation::check_Total_EventTypes(vector <Event_Type> event_type_vec, vector <Event_Statistic> event_stat_vec)
 {
     if (event_type_vec.size() != event_stat_vec.size())
@@ -74,21 +62,17 @@ bool Validation::check_Total_EventTypes(vector <Event_Type> event_type_vec, vect
     return true;
 }
 
-bool Validation::check_Event_Max_Value(vector <Event_Type> event_type_vec, string event_name, float value)
+bool Validation::check_initial_arguments(string a, string b)  
 {
-    int i = 0;
-    while(i < event_type_vec.size())
+    if (a.empty() || b.empty())
     {
-        if (event_type_vec[i].event_name.compare(event_name) == 0)
-        {
-            if (event_type_vec[i].max == 0 || event_type_vec[i].max >= value)
-                return false;
-        }
-        i++;
+        cout << "Error: Missing with filename" << endl;
+        return false;
     }
+    
     return true;
-}
 
+}
 
 
 

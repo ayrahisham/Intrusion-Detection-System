@@ -1,6 +1,0 @@
-5
-D:Logins:12.9:7.33819:
-C:Time online:180.233:107.654:
-D:Emails sent:20.3:10.4977:
-D:Emails opened:23.6:12.089:
-D:Emails deleted:35.9:16.7335:

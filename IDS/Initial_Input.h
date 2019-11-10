@@ -1,10 +1,10 @@
 
-#ifndef INITIAL_INPUT
-#define INITIAL_INPUT
+
+#ifndef Initial_Input_h
+#define Initial_Input_h
 
 #include "IDS.h"
-#include "Activity_Simulation.h" 
-#include "Validation.h"
+#include "Activity_Simulation.h"
 
 class Initial_Input
 {
@@ -29,5 +29,5 @@ private:
     vector <Event_Statistic> event_stat_vec;
 };
 
-#endif
 
+#endif

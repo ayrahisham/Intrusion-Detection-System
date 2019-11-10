@@ -18,6 +18,9 @@
 #include <math.h>
 #include <string.h>
 #include <ctime>
+#include <iomanip>
+#include <cctype>
+#include <iostream>
 using namespace std;
 
 struct Event_Type
@@ -31,17 +34,22 @@ struct Event_Type
 
 struct Event_Statistic
 {
-    char event_val_type;
     string event_name;
     float mean;
     float std_dev;
 };
 
-struct Event_Daily_Total
+struct Event_Info
 {
     string event_name;
+    float total;
     char event_val_type;
-    vector <pair<int,float>> total_vec;
+};
+
+struct Day_Total
+{
+    int day;
+    vector <Event_Info> all_event_totals;
 };
 
 struct Event_Log
@@ -53,7 +61,6 @@ struct Event_Log
 
 struct Event_Anomaly_Report
 {
-    string event_name;
     int day_number;
     int abnormaly_threshold;
     int abnormaly_counter;
@@ -69,7 +76,10 @@ int search_event_in_vec(string event_name, vector <T> events_vec)
     for (int i = 0; i < events_vec.size(); i++)
     {
         if (event_name.compare(events_vec[i].event_name) == 0)
+        {
             index = i;
+            break;
+        }
     }
     return index;
 }
@@ -77,11 +87,12 @@ int search_event_in_vec(string event_name, vector <T> events_vec)
 // functions that can be shared across classes
 vector <Event_Type> read_event_type_file(string);
 vector <Event_Statistic> read_stat_file(string);
-vector <Event_Daily_Total> read_event_log_file(string);
-bool find_day_total_struct(int&, vector <Event_Daily_Total>, string);
-bool find_day_total(Event_Daily_Total, int, int&);
-vector <Event_Daily_Total> read_event_daily_total_file(string, int);
-void delete_output_files();
+vector <Day_Total> read_event_log_file(string);
+
+int search_event(string, vector <Event_Info>);
+int search_day(int, vector <Day_Total>);
+
+void delete_output_files(char);
 
 
 #endif
